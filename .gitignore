@@ -1,0 +1,5 @@
+.DS_Store
+.env.secrets
+
+# ignore local build artifacts or server saves
+palworld

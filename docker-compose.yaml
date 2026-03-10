@@ -1,0 +1,16 @@
+---
+services:
+  palworld:
+    image: thijsvanloef/palworld-server-docker:latest
+    restart: unless-stopped
+    container_name: palworld-server
+    stop_grace_period: 30s 
+    ports:
+      - 0.0.0.0:8211:8211/udp   # Port Forward
+      - 0.0.0.0:27015:27015/udp # Port Forward
+      - 0.0.0.0:8212:8212/tcp   # DO NOT PORT FORWARD THIS.
+    env_file:
+      - .env
+      - .env.secrets
+    volumes:
+      - ./palworld:/palworld/
